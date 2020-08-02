@@ -40,7 +40,7 @@ names(FinalData)<-gsub("-freq()", "Frequency", names(FinalData), ignore.case = T
 names(FinalData)<-gsub("angle", "Angle", names(FinalData))
 names(FinalData)<-gsub("gravity", "Gravity", names(FinalData))
 # Creating second independent set
-Final2Data <- TidyData %>%
+Final2Data <- FinalData %>%
   group_by(subject, activity) %>%
   summarise_all(funs(mean))
 write.table(Final2Data, "FinalData.txt", row.name=FALSE)
